@@ -1,0 +1,5 @@
+name: omniASR_CTC_300M_kk
+model_family: wav2vec2_asr
+model_arch: 300m_v2
+checkpoint: "/data/home/asan_tasmulaev/fine-tune/omniASR_CTC_300M_kk.pt"
+tokenizer_ref: omniASR_tokenizer_written_v2

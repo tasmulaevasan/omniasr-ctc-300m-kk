@@ -1,0 +1,7 @@
+model,test_set,wer_pct,uer_pct,status
+finetuned,KSC2 (kaz),18.6432,4.84143,ok
+finetuned,FLEURS en,58.6658,23.0113,ok
+finetuned,FLEURS ru,33.5201,8.28327,ok
+base,KSC2 (kaz),40.1938,11.4488,ok
+base,FLEURS en,17.131,5.45617,ok
+base,FLEURS ru,28.9062,6.0419,ok

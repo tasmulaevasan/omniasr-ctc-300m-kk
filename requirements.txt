@@ -1,0 +1,10 @@
+omnilingual-asr==0.2.0
+fairseq2==0.6
+audiomentations==0.43.1
+datasets==5.0.0
+soundfile==0.14.0
+resampy==0.4.3
+pyarrow==24.0.0
+numpy==1.26.4
+kenlm==0.3.0
+jiwer==4.0.0

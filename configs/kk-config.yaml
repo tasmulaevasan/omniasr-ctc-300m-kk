@@ -1,0 +1,47 @@
+model:
+  name: "omniASR_CTC_300M_v2"
+dataset:
+  name: "kazakh_asr"
+  train_split: "train"
+  valid_split: "dev"
+  storage_mode: "MIXTURE_PARQUET"
+  task_mode: "ASR"
+  mixture_parquet_storage_config:
+    dataset_summary_path: null
+    beta_corpus: null
+    beta_language: null
+    fragment_loading:
+      cache: True
+  asr_task_config:
+     max_audio_len: 960_000
+     max_num_elements: 9_000_000
+     batch_shuffle_window: 1
+     normalize_audio: true
+     example_shuffle_window: 10000
+tokenizer:
+  name: "omniASR_tokenizer_written_v2"
+optimizer:
+  config:
+    lr: 1.5e-05
+lr_scheduler:
+  name: "tri_stage"
+  config:
+    stage_ratio: [0.05, 0.35, 0.6]
+    start_lr_scale: 0.01
+    final_lr_scale: 0.05
+trainer:
+  freeze_encoder_for_n_steps: 0
+  mixed_precision:
+    dtype: "torch.bfloat16"
+  grad_accumulation:
+    num_batches: 4
+regime:
+  num_steps: 30_000
+  validate_every_n_steps: 1000
+  validate_after_n_steps: 1000
+  checkpoint_every_n_steps: 1000
+  checkpoint_after_n_steps: 1000
+  publish_metrics_every_n_steps: 100
+  publish_metrics_after_n_steps: 100
+  keep_best_n_checkpoints: 3
+  keep_last_n_checkpoints: 2
